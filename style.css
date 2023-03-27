@@ -1,0 +1,461 @@
+@import url("https://fonts.googleapis.com/css2?family=Arapey:ital@0;1&family=Cinzel:wght@400;500&family=Indie+Flower&family=Poppins:ital,wght@0,100;0,200;0,400;1,200;1,300;1,400;1,700&family=Raleway:ital,wght@0,100;0,300;1,100;1,400;1,500&family=Slabo+27px&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+a.btn {
+  text-decoration: none;
+  display: inline-block;
+  color: #222;
+  background-color: #eee;
+  line-height: 2;
+  padding: 0px 10px;
+  border: 1px solid #fcfcfc;
+  margin-left: auto;
+  margin-right: 30px;
+  border-radius: 5%;
+  transition: all 0.3s; }
+  a.btn:hover {
+    box-shadow: 1px 1px 5px #0ff; }
+  a.btn:active {
+    transform: translateY(1px);
+    box-shadow: 1px 1px 1px #0ff; }
+
+p {
+  font-size: 14px; }
+
+img {
+  width: 100%; }
+
+body {
+  height: 100vh;
+  background-color: #222;
+  font-family: 'Slabo 27px',sans-serif;
+  color: #fff; }
+
+.content {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px 10px 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: inherit;
+  color: #fff;
+  opacity: 0;
+  transition: all 3s .5s;
+  z-index: 1; }
+  .content > h3, .content h4 {
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 10px; }
+  .content > p {
+    padding: 0px 20px; }
+
+.project:hover > .content {
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 1; }
+
+.project-small {
+  overflow: hidden;
+  border-radius: 15%;
+  border: 3px solid rgba(0, 0, 0, 0.6);
+  box-shadow: 5px 5px 5px -5px #fff, -5px -5px 5px -5px #fff, inset 10px 10px 5px rgba(0, 0, 0, 0.4), inset -10px -10px 5px rgba(0, 0, 0, 0.4);
+  transition: all 0.5s; }
+  .project-small:after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    transition: all 3s cubic-bezier(0.25, 0.45, 0.45, 0.95); }
+  .project-small:hover {
+    border: 0px solid rgba(0, 0, 0, 0.1); }
+  .project-small:hover:after {
+    transform: scale(1.2); }
+
+.box-3d {
+  transform-style: preserve-3d;
+  position: relative;
+  width: 55px;
+  height: 55px; }
+  .box-3d > div {
+    transform-style: preserve-3d;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotateX(-30deg) rotateY(45deg); }
+
+@keyframes animate-box {
+  0% {
+    transform: rotateX(-30deg) rotateY(0deg); }
+  100% {
+    transform: rotateX(-30deg) rotateY(360deg); } }
+    .box-3d > div > span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(#fff, #00ec00); }
+      .box-3d > div > span:nth-child(1) {
+        transform: rotateY(90deg) translateZ(27.5px); }
+      .box-3d > div > span:nth-child(2) {
+        transform: rotateY(180deg) translateZ(27.5px); }
+      .box-3d > div > span:nth-child(3) {
+        transform: rotateY(270deg) translateZ(27.5px); }
+      .box-3d > div > span:nth-child(4) {
+        transform: rotateY(360deg) translateZ(27.5px); }
+    .box-3d > div > svg {
+      position: absolute;
+      left: 50%;
+      height: 100%;
+      bottom: -100%; }
+  .box-3d .bounce-rope {
+    animation: path 2s alternate; }
+
+@keyframes path {
+  50% {
+    d: path("M 10 20 q -23 30 5 42 t -90 121"); }
+  100% {
+    d: path("M 10 10 q -23 45 5 42 t -9 41"); } }
+
+.container-layout {
+  width: 100%;
+  height: 100%; }
+  .container-layout > .container-projects {
+    padding: 10px 0;
+    width: 90vw;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px; }
+    .container-layout > .container-projects > .project-one {
+      grid-area: 1 / 2 / 2 / 6;
+      border-radius: 1%;
+      border: 2px solid rgba(0, 0, 0, 0.6);
+      background: radial-gradient(ellipse 50% 50% at 0% 100%, #f0f, #fff);
+      animation: border2 10s linear infinite;
+      overflow: hidden;
+      box-shadow: inset 10px 10px 5px rgba(0, 0, 0, 0.4), inset -10px -10px 5px rgba(0, 0, 0, 0.4); }
+      .container-layout > .container-projects > .project-one::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        width: 98.5%;
+        height: 97%;
+        background: center/85% 100% no-repeat url(./assets/lab-managment-demo.png), #eee 35%;
+        transform: translate(0.9%, 1.2%);
+        box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.8), inset -1px -1px 2px rgba(0, 0, 0, 0.8);
+        transition: transform 6s; }
+      .container-layout > .container-projects > .project-one::before {
+        position: absolute;
+        inset: 0;
+        content: "";
+        width: 105%;
+        height: 105%;
+        background: #fff;
+        transform: translate(-0.55%, -2.5%);
+        border-radius: inherit;
+        border: 2px solid rgba(0, 0, 0, 0.2);
+        background-image: linear-gradient(148deg, rgba(246, 248, 249, 0) 0%, rgba(245, 247, 249, 0) 100%), radial-gradient(#f6f8f9 0%, #cdd4d9 75%, #cdd4d9 76%, #f5f7f9 100%);
+        z-index: -2; }
+      .container-layout > .container-projects > .project-one:hover:after {
+        transform: scale(1.2);
+        transform: cubic-bezier(0.25, 0.45, 0.45, 0.95); }
+    .container-layout > .container-projects > .project-two {
+      align-self: center;
+      justify-self: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      grid-area: 1 / 6 / 2 / 7; }
+    .container-layout > .container-projects > .project-four {
+      z-index: 1;
+      grid-area: 2 / 1 / 3 / 3; }
+      .container-layout > .container-projects > .project-four:after {
+        background: center/contain no-repeat url(/assets/hplc-devices-wide.png), #fcfcfc 5%; }
+    .container-layout > .container-projects > .project-five {
+      z-index: 1;
+      grid-area: 3 / 1 / 4 / 3; }
+      .container-layout > .container-projects > .project-five::after {
+        background: 100% 90%/cover no-repeat url(/assets/weather-app.png), #fcfcfc 5%; }
+    .container-layout > .container-projects > .project-six {
+      z-index: 1;
+      grid-area: 2 / 5 / 3 / 8; }
+      .container-layout > .container-projects > .project-six::after {
+        background: center/contain no-repeat url(/assets/wordle.png), #fcfcfc 5%; }
+    .container-layout > .container-projects > .project-seven {
+      z-index: 1;
+      grid-area: 3 / 5 / 4 / 8; }
+      .container-layout > .container-projects > .project-seven::after {
+        background: center/contain no-repeat url(/assets/hang-man.png), #fcfcfc 5%; }
+    .container-layout > .container-projects > .contact {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      grid-area: 2 / 3 / 4 / 5;
+      background: center/cover no-repeat url(./assets/blosom.jpg); }
+      .container-layout > .container-projects > .contact > .glacial-pannel {
+        position: absolute;
+        width: 95%;
+        height: 95%;
+        padding: 5px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: #222;
+        background: rgba(255, 255, 255, 0.4);
+        -webkit-backdrop-filter: blur(1px);
+        backdrop-filter: blur(1px);
+        border: 1px solid #fff;
+        box-shadow: 0 6px 35px rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        z-index: 2; }
+        .container-layout > .container-projects > .contact > .glacial-pannel > .header > h3 {
+          text-align: center;
+          line-height: 1.2;
+          letter-spacing: 0.7px;
+          font-family: 'poppins, serif'; }
+        .container-layout > .container-projects > .contact > .glacial-pannel > .header > p {
+          margin-top: 10px;
+          text-align: center;
+          font-weight: 900;
+          letter-spacing: 0.3px; }
+        .container-layout > .container-projects > .contact > .glacial-pannel > .social-box {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          align-content: center;
+          padding: 3px 0;
+          background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(0, 0, 0, 0.1));
+          border: 1px solid rgba(255, 255, 255, 0.4);
+          box-shadow: 0px 0px 30px 10px white;
+          border-radius: 5px; }
+          .container-layout > .container-projects > .contact > .glacial-pannel > .social-box > a {
+            padding: 0;
+            margin: 0;
+            height: 30px;
+            aspect-ratio: 1;
+            background: transparent;
+            border: none; }
+        .container-layout > .container-projects > .contact > .glacial-pannel > footer {
+          font-size: 0.8rem;
+          letter-spacing: 0.8px; }
+    .container-layout > .container-projects > div {
+      position: relative;
+      cursor: pointer; }
+
+@keyframes border2 {
+  1% {
+    background: radial-gradient(ellipse 50% 50% at 0% 90%, #f0f, #fff); }
+  2% {
+    background: radial-gradient(ellipse 50% 50% at 0% 80%, #f0f, #fff); }
+  3% {
+    background: radial-gradient(ellipse 50% 50% at 0% 70%, #f0f, #fff); }
+  4% {
+    background: radial-gradient(ellipse 50% 50% at 0% 60%, #f0f, #fff); }
+  5% {
+    background: radial-gradient(ellipse 50% 50% at 0% 50%, #f0f, #fff); }
+  6% {
+    background: radial-gradient(ellipse 50% 50% at 0% 40%, #f0f, #fff); }
+  7% {
+    background: radial-gradient(ellipse 50% 50% at 0% 30%, #f0f, #fff); }
+  8% {
+    background: radial-gradient(ellipse 50% 50% at 0% 20%, #f0f, #fff); }
+  9% {
+    background: radial-gradient(ellipse 50% 50% at 0% 10%, #f0f, #fff); }
+  10% {
+    background: radial-gradient(ellipse 50% 50% at 0% 0%, #f0f, #fff); }
+  12% {
+    background: radial-gradient(ellipse 50% 50% at 0% 0%, #f0f, #fff); }
+  13% {
+    background: radial-gradient(ellipse 50% 50% at 2.63158% 0%, #f0f, #fff); }
+  14% {
+    background: radial-gradient(ellipse 50% 50% at 5.26316% 0%, #f0f, #fff); }
+  15% {
+    background: radial-gradient(ellipse 50% 50% at 7.89474% 0%, #f0f, #fff); }
+  16% {
+    background: radial-gradient(ellipse 50% 50% at 10.52632% 0%, #f0f, #fff); }
+  17% {
+    background: radial-gradient(ellipse 50% 50% at 13.15789% 0%, #f0f, #fff); }
+  18% {
+    background: radial-gradient(ellipse 50% 50% at 15.78947% 0%, #f0f, #fff); }
+  19% {
+    background: radial-gradient(ellipse 50% 50% at 18.42105% 0%, #f0f, #fff); }
+  20% {
+    background: radial-gradient(ellipse 50% 50% at 21.05263% 0%, #f0f, #fff); }
+  21% {
+    background: radial-gradient(ellipse 50% 50% at 23.68421% 0%, #f0f, #fff); }
+  22% {
+    background: radial-gradient(ellipse 50% 50% at 26.31579% 0%, #f0f, #fff); }
+  23% {
+    background: radial-gradient(ellipse 50% 50% at 28.94737% 0%, #f0f, #fff); }
+  24% {
+    background: radial-gradient(ellipse 50% 50% at 31.57895% 0%, #f0f, #fff); }
+  25% {
+    background: radial-gradient(ellipse 50% 50% at 34.21053% 0%, #f0f, #fff); }
+  26% {
+    background: radial-gradient(ellipse 50% 50% at 36.84211% 0%, #f0f, #fff); }
+  27% {
+    background: radial-gradient(ellipse 50% 50% at 39.47368% 0%, #f0f, #fff); }
+  28% {
+    background: radial-gradient(ellipse 50% 50% at 42.10526% 0%, #f0f, #fff); }
+  29% {
+    background: radial-gradient(ellipse 50% 50% at 44.73684% 0%, #f0f, #fff); }
+  30% {
+    background: radial-gradient(ellipse 50% 50% at 47.36842% 0%, #f0f, #fff); }
+  31% {
+    background: radial-gradient(ellipse 50% 50% at 50% 0%, #f0f, #fff); }
+  32% {
+    background: radial-gradient(ellipse 50% 50% at 52.63158% 0%, #f0f, #fff); }
+  33% {
+    background: radial-gradient(ellipse 50% 50% at 55.26316% 0%, #f0f, #fff); }
+  34% {
+    background: radial-gradient(ellipse 50% 50% at 57.89474% 0%, #f0f, #fff); }
+  35% {
+    background: radial-gradient(ellipse 50% 50% at 60.52632% 0%, #f0f, #fff); }
+  36% {
+    background: radial-gradient(ellipse 50% 50% at 63.15789% 0%, #f0f, #fff); }
+  37% {
+    background: radial-gradient(ellipse 50% 50% at 65.78947% 0%, #f0f, #fff); }
+  38% {
+    background: radial-gradient(ellipse 50% 50% at 68.42105% 0%, #f0f, #fff); }
+  39% {
+    background: radial-gradient(ellipse 50% 50% at 71.05263% 0%, #f0f, #fff); }
+  40% {
+    background: radial-gradient(ellipse 50% 50% at 73.68421% 0%, #f0f, #fff); }
+  41% {
+    background: radial-gradient(ellipse 50% 50% at 76.31579% 0%, #f0f, #fff); }
+  42% {
+    background: radial-gradient(ellipse 50% 50% at 78.94737% 0%, #f0f, #fff); }
+  43% {
+    background: radial-gradient(ellipse 50% 50% at 81.57895% 0%, #f0f, #fff); }
+  44% {
+    background: radial-gradient(ellipse 50% 50% at 84.21053% 0%, #f0f, #fff); }
+  45% {
+    background: radial-gradient(ellipse 50% 50% at 86.84211% 0%, #f0f, #fff); }
+  46% {
+    background: radial-gradient(ellipse 50% 50% at 89.47368% 0%, #f0f, #fff); }
+  47% {
+    background: radial-gradient(ellipse 50% 50% at 92.10526% 0%, #f0f, #fff); }
+  48% {
+    background: radial-gradient(ellipse 50% 50% at 94.73684% 0%, #f0f, #fff); }
+  49% {
+    background: radial-gradient(ellipse 50% 50% at 97.36842% 0%, #f0f, #fff); }
+  50% {
+    background: radial-gradient(ellipse 50% 50% at 100% 0%, #f0f, #fff); }
+  51% {
+    background: radial-gradient(ellipse 50% 50% at 100% 10%, #f0f, #fff); }
+  52% {
+    background: radial-gradient(ellipse 50% 50% at 100% 20%, #f0f, #fff); }
+  53% {
+    background: radial-gradient(ellipse 50% 50% at 100% 30%, #f0f, #fff); }
+  54% {
+    background: radial-gradient(ellipse 50% 50% at 100% 40%, #f0f, #fff); }
+  55% {
+    background: radial-gradient(ellipse 50% 50% at 100% 50%, #f0f, #fff); }
+  56% {
+    background: radial-gradient(ellipse 50% 50% at 100% 60%, #f0f, #fff); }
+  57% {
+    background: radial-gradient(ellipse 50% 50% at 100% 70%, #f0f, #fff); }
+  58% {
+    background: radial-gradient(ellipse 50% 50% at 100% 80%, #f0f, #fff); }
+  59% {
+    background: radial-gradient(ellipse 50% 50% at 100% 90%, #f0f, #fff); }
+  60% {
+    background: radial-gradient(ellipse 50% 50% at 100% 100%, #f0f, #fff); }
+  61% {
+    background: radial-gradient(ellipse 50% 50% at 100% 100%, #f0f, #fff); }
+  62% {
+    background: radial-gradient(ellipse 50% 50% at 97.4359% 100%, #f0f, #fff); }
+  63% {
+    background: radial-gradient(ellipse 50% 50% at 94.87179% 100%, #f0f, #fff); }
+  64% {
+    background: radial-gradient(ellipse 50% 50% at 92.30769% 100%, #f0f, #fff); }
+  65% {
+    background: radial-gradient(ellipse 50% 50% at 89.74359% 100%, #f0f, #fff); }
+  66% {
+    background: radial-gradient(ellipse 50% 50% at 87.17949% 100%, #f0f, #fff); }
+  67% {
+    background: radial-gradient(ellipse 50% 50% at 84.61538% 100%, #f0f, #fff); }
+  68% {
+    background: radial-gradient(ellipse 50% 50% at 82.05128% 100%, #f0f, #fff); }
+  69% {
+    background: radial-gradient(ellipse 50% 50% at 79.48718% 100%, #f0f, #fff); }
+  70% {
+    background: radial-gradient(ellipse 50% 50% at 76.92308% 100%, #f0f, #fff); }
+  71% {
+    background: radial-gradient(ellipse 50% 50% at 74.35897% 100%, #f0f, #fff); }
+  72% {
+    background: radial-gradient(ellipse 50% 50% at 71.79487% 100%, #f0f, #fff); }
+  73% {
+    background: radial-gradient(ellipse 50% 50% at 69.23077% 100%, #f0f, #fff); }
+  74% {
+    background: radial-gradient(ellipse 50% 50% at 66.66667% 100%, #f0f, #fff); }
+  75% {
+    background: radial-gradient(ellipse 50% 50% at 64.10256% 100%, #f0f, #fff); }
+  76% {
+    background: radial-gradient(ellipse 50% 50% at 61.53846% 100%, #f0f, #fff); }
+  77% {
+    background: radial-gradient(ellipse 50% 50% at 58.97436% 100%, #f0f, #fff); }
+  78% {
+    background: radial-gradient(ellipse 50% 50% at 56.41026% 100%, #f0f, #fff); }
+  79% {
+    background: radial-gradient(ellipse 50% 50% at 53.84615% 100%, #f0f, #fff); }
+  80% {
+    background: radial-gradient(ellipse 50% 50% at 51.28205% 100%, #f0f, #fff); }
+  81% {
+    background: radial-gradient(ellipse 50% 50% at 48.71795% 100%, #f0f, #fff); }
+  82% {
+    background: radial-gradient(ellipse 50% 50% at 46.15385% 100%, #f0f, #fff); }
+  83% {
+    background: radial-gradient(ellipse 50% 50% at 43.58974% 100%, #f0f, #fff); }
+  84% {
+    background: radial-gradient(ellipse 50% 50% at 41.02564% 100%, #f0f, #fff); }
+  85% {
+    background: radial-gradient(ellipse 50% 50% at 38.46154% 100%, #f0f, #fff); }
+  86% {
+    background: radial-gradient(ellipse 50% 50% at 35.89744% 100%, #f0f, #fff); }
+  87% {
+    background: radial-gradient(ellipse 50% 50% at 33.33333% 100%, #f0f, #fff); }
+  88% {
+    background: radial-gradient(ellipse 50% 50% at 30.76923% 100%, #f0f, #fff); }
+  89% {
+    background: radial-gradient(ellipse 50% 50% at 28.20513% 100%, #f0f, #fff); }
+  90% {
+    background: radial-gradient(ellipse 50% 50% at 25.64103% 100%, #f0f, #fff); }
+  91% {
+    background: radial-gradient(ellipse 50% 50% at 23.07692% 100%, #f0f, #fff); }
+  92% {
+    background: radial-gradient(ellipse 50% 50% at 20.51282% 100%, #f0f, #fff); }
+  93% {
+    background: radial-gradient(ellipse 50% 50% at 17.94872% 100%, #f0f, #fff); }
+  94% {
+    background: radial-gradient(ellipse 50% 50% at 15.38462% 100%, #f0f, #fff); }
+  95% {
+    background: radial-gradient(ellipse 50% 50% at 12.82051% 100%, #f0f, #fff); }
+  96% {
+    background: radial-gradient(ellipse 50% 50% at 10.25641% 100%, #f0f, #fff); }
+  97% {
+    background: radial-gradient(ellipse 50% 50% at 7.69231% 100%, #f0f, #fff); }
+  98% {
+    background: radial-gradient(ellipse 50% 50% at 5.12821% 100%, #f0f, #fff); }
+  99% {
+    background: radial-gradient(ellipse 50% 50% at 2.5641% 100%, #f0f, #fff); }
+  100% {
+    background: radial-gradient(ellipse 50% 50% at 0% 100%, #f0f, #fff); } }
