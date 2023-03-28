@@ -1,3 +1,4 @@
+const html =document.querySelector('html')
 const body = document.querySelector("body");
 const box3d = document.querySelector(".box-3d")
 const svg = document.querySelector('.box-3d svg')
@@ -6,6 +7,7 @@ const contact = document.querySelector(".contact");
 const contactWidth = contact.offsetWidth;
 const contactHeight = contact.offHeight;
  const confettiNum = contactWidth / 15;
+ console.log(html.clientWidth);
 //Function
 const random = (min,max)=>{
 return Math.floor(Math.random() * (max - min) + min); 
@@ -77,23 +79,9 @@ const confettiTiming = (i) => {
 
 //SVG ANIMATION
 addEventListener('load',()=>{
- document.querySelectorAll(".confetti").forEach((div, index) => {
-   div.animate(confettiFrames, confettiTiming(index));
- });
+  if(html.clientWidth>580){
+    document.querySelectorAll(".confetti").forEach((div, index) => {
+      div.animate(confettiFrames, confettiTiming(index));
+    });
+  }
 })
-//SVG ROPE
-// path.addEventListener('click',()=>{
-//   // path.classList.add('bounce-rope')
-//   if(!path.classList.contains('bounce-rope')){
-//     path.classList.add("bounce-rope");
-//   document.querySelectorAll(".confetti").forEach((div, index) => {
-//       div.animate(confettiFrames, confettiTiming(index));
-//     });
-//     setTimeout(()=>{
-//  path.classList.remove("bounce-rope");
-//     },2500)
-//     path.getAnimations()[0].ready.then((x)=>{
-//       console.log(x.playState);
-//     })
-//   }
-// })
