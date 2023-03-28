@@ -24,7 +24,7 @@ family:'Slabo 27px',sans-serif;
 color:#fff;
 }
 P{
-  font-size:1.5rem;
+  font-size:2rem;
   padding:0px 20px;
 }
 button{
@@ -108,11 +108,12 @@ color:#fff;
 opacity:0;
 transition:all 3s .5s ;
 z-index:1;
-& > h3,h4{
+& > h3{
 text-align: center;
 letter-spacing:0.1em;
 text-transform: uppercase;
 font-weight: 700;
+font-size: 3rem;
 margin-bottom:10px;
 }
 }
@@ -332,7 +333,7 @@ z-index:2;
    letter-spacing:0.7px;
 font: {
   family:'poppins, serif';
-size:2rem;
+size:3rem;
 }
 }
 & > p{

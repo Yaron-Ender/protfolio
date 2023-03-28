@@ -17,7 +17,7 @@ body {
   color: #fff; }
 
 P {
-  font-size: 1.5rem;
+  font-size: 2rem;
   padding: 0px 20px; }
 
 button {
@@ -88,11 +88,12 @@ button {
   opacity: 0;
   transition: all 3s .5s;
   z-index: 1; }
-  .content > h3, .content h4 {
+  .content > h3 {
     text-align: center;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     font-weight: 700;
+    font-size: 3rem;
     margin-bottom: 10px; }
 
 .project:hover > .content {
@@ -268,7 +269,7 @@ button {
           line-height: 1.2;
           letter-spacing: 0.7px;
           font-family: 'poppins, serif';
-          font-size: 2rem; }
+          font-size: 3rem; }
         .container-layout > .container-projects > .contact > .glacial-pannel > .header > p {
           margin-top: 10px;
           text-align: center;
