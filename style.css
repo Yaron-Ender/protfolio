@@ -4,23 +4,57 @@
   margin: 0;
   padding: 0; }
 
-a.btn {
-  text-decoration: none;
-  display: inline-block;
-  color: #222;
-  background-color: #eee;
-  line-height: 2;
-  padding: 0px 10px;
-  border: 1px solid #fcfcfc;
+button {
+  position: relative;
+  background: transparent;
+  border: none;
   margin-left: auto;
   margin-right: 30px;
-  border-radius: 5%;
-  transition: all 0.3s; }
-  a.btn:hover {
-    box-shadow: 1px 1px 5px #0ff; }
-  a.btn:active {
-    transform: translateY(1px);
-    box-shadow: 1px 1px 1px #0ff; }
+  border-radius: 7px;
+  outline-offset: 4px;
+  transition: transform 250ms; }
+  button:focus:not(:focus-visible) {
+    outline: none; }
+  button > .shadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.2);
+    transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+    transform: translateY(1px); }
+  button > .edge {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.5); }
+  button > a.btn {
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    color: #222;
+    padding: 3px 25px;
+    border-radius: 7px;
+    background: white;
+    will-change: transform;
+    transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+    transform: translateY(-4px); }
+  button:hover > a.btn {
+    transform: translateY(-5px);
+    transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5); }
+  button:hover > .shadow {
+    transform: translateY(2px);
+    background: rgba(255, 255, 255, 0.5);
+    transition: transform 400ms cubic-bezier(0.3, 0.7, 0.4, 1.5); }
+  button:active > a.btn {
+    transform: translateY(-4px);
+    transition: transform 34ms; }
+  button:active > .shadow {
+    transform: translateY(0px);
+    transition: transform 34ms; }
 
 p {
   font-size: 14px; }
