@@ -132,8 +132,8 @@ font-size:clamp(2rem,1.5vw,3rem);
 margin-bottom:10px;
 }
 & > p:not(:is(.project-one p)){
-letter-spacing:2px;
-line-height:1.5;
+letter-spacing:1.2px;
+line-height:1;
 }
 }
 .project:hover > .content{
@@ -183,12 +183,19 @@ gap:10px;
 @media screen and (max-width:580px){
 grid-template-columns:1fr;
 grid-template-rows:repeat(7,minmax(30vh,1fr)); 
-padding:10px 30px;
+padding:10px ;
 }
 & > .project-one{
 grid-area: 1 / 2 / 2 / 6;
 @media(max-width:580px){
 grid-area: 1 ;
+// & > .content p:not(.small-screen){
+// display: none;
+// }
+// & > .content > p.small-screen{
+// display:block;
+// color: #eee;
+// }
 }
 border-radius:1%;
 border:2px solid rgba(0, 0, 0, 0.6);
@@ -198,6 +205,19 @@ overflow: hidden;
 box-shadow:inset 10px 10px 5px rgba(0, 0, 0, 0.4),
            inset -10px -10px 5px rgba(0, 0, 0, 0.4) ;
 & > .content{
+& > p.small-screen{
+display: none;
+}
+@media screen and (max-width:580px) {
+ & > p:not(.small-screen){
+  display: none;
+ }
+ & >p.small-screen{
+  display: block;
+  line-height:2;
+  letter-spacing:1px;
+ }  
+}
 & > .details-box{
 display: flex;
 justify-content:space-between;
@@ -292,7 +312,7 @@ grid-area:0;
   z-index: 1;
   grid-area: 2 / 1 / 3 / 3;
   @media(max-width:580px){
-    grid-area:2 / 1 / 3 / 1
+    grid-area:2 / 1 / 3 / 1;
   }
   & .content > .details-box{
   display: flex;

@@ -107,8 +107,8 @@ button {
     font-size: clamp(2rem, 1.5vw, 3rem);
     margin-bottom: 10px; }
   .content > p:not(:is(.project-one p)) {
-    letter-spacing: 2px;
-    line-height: 1.5; }
+    letter-spacing: 1.2px;
+    line-height: 1; }
 
 .project:hover > .content {
   background-color: rgba(0, 0, 0, 0.8);
@@ -150,7 +150,7 @@ button {
       .container-layout > .container-projects {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(7, minmax(30vh, 1fr));
-        padding: 10px 30px; } }
+        padding: 10px; } }
     .container-layout > .container-projects > .project-one {
       grid-area: 1 / 2 / 2 / 6;
       border-radius: 1%;
@@ -162,6 +162,15 @@ button {
       @media (max-width: 580px) {
         .container-layout > .container-projects > .project-one {
           grid-area: 1; } }
+      .container-layout > .container-projects > .project-one > .content > p.small-screen {
+        display: none; }
+      @media screen and (max-width: 580px) {
+        .container-layout > .container-projects > .project-one > .content > p:not(.small-screen) {
+          display: none; }
+        .container-layout > .container-projects > .project-one > .content > p.small-screen {
+          display: block;
+          line-height: 2;
+          letter-spacing: 1px; } }
       .container-layout > .container-projects > .project-one > .content > .details-box {
         display: flex;
         justify-content: space-between;
