@@ -17,15 +17,19 @@ body {
   color: #fff; }
 
 P {
-  font-size: clamp(1rem, 1.5vw, 2rem);
+  font-size: clamp(1.5rem, 1.5vw, 3rem);
   padding: 0px 20px; }
 
 h3 {
   text-align: center;
-  font-size: clamp(1rem, 2.5vw, 3rem);
+  font-size: clamp(1.5rem, 2.5vw, 4rem);
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 0.2rem; }
+
+span {
+  font-size: clamp(1.2rem, 2.5vw, 2.2rem);
+  font-weight: 300; }
 
 button {
   position: relative;
@@ -65,7 +69,7 @@ button {
     will-change: transform;
     transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
     transform: translateY(-4px);
-    font-size: 1.5rem; }
+    font-size: 2rem; }
   button:hover > a.btn {
     transform: translateY(-5px);
     transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5); }
@@ -100,8 +104,11 @@ button {
     letter-spacing: 0.2em;
     text-transform: uppercase;
     font-weight: 400;
-    font-size: clamp(1rem, 1.5vw, 2rem);
+    font-size: clamp(2rem, 1.5vw, 3rem);
     margin-bottom: 10px; }
+  .content > p:not(:is(.project-one p)) {
+    letter-spacing: 2px;
+    line-height: 1.5; }
 
 .project:hover > .content {
   background-color: rgba(0, 0, 0, 0.8);
@@ -125,55 +132,6 @@ button {
     border: 0px solid rgba(0, 0, 0, 0.1); }
   .project-small:hover:after {
     transform: scale(1.2); }
-
-.box-3d {
-  transform-style: preserve-3d;
-  position: relative;
-  width: 55px;
-  height: 55px; }
-  .box-3d > div {
-    transform-style: preserve-3d;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: rotateX(-30deg) rotateY(45deg); }
-
-@keyframes animate-box {
-  0% {
-    transform: rotateX(-30deg) rotateY(0deg); }
-  100% {
-    transform: rotateX(-30deg) rotateY(360deg); } }
-    .box-3d > div > span {
-      position: absolute;
-      top: 0;
-      left: 0;
-      content: "";
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(#fff, #00ec00); }
-      .box-3d > div > span:nth-child(1) {
-        transform: rotateY(90deg) translateZ(27.5px); }
-      .box-3d > div > span:nth-child(2) {
-        transform: rotateY(180deg) translateZ(27.5px); }
-      .box-3d > div > span:nth-child(3) {
-        transform: rotateY(270deg) translateZ(27.5px); }
-      .box-3d > div > span:nth-child(4) {
-        transform: rotateY(360deg) translateZ(27.5px); }
-    .box-3d > div > svg {
-      position: absolute;
-      left: 50%;
-      height: 100%;
-      bottom: -100%; }
-  .box-3d .bounce-rope {
-    animation: path 2s alternate; }
-
-@keyframes path {
-  50% {
-    d: path("M 10 20 q -23 30 5 42 t -90 121"); }
-  100% {
-    d: path("M 10 10 q -23 45 5 42 t -9 41"); } }
 
 .container-layout {
   width: 100%;
@@ -208,16 +166,33 @@ button {
         display: flex;
         justify-content: space-between;
         align-items: center; }
+        @media screen and (max-width: 580px) {
+          .container-layout > .container-projects > .project-one > .content > .details-box {
+            flex-flow: column wrap;
+            align-content: center;
+            justify-content: center; }
+            .container-layout > .container-projects > .project-one > .content > .details-box button {
+              margin: 10px 0 auto; } }
         .container-layout > .container-projects > .project-one > .content > .details-box > .social-box {
           width: 10%;
-          margin-left: 10px;
+          margin-left: 7px;
           display: flex;
-          justify-content: space-between; }
+          justify-content: space-evenly; }
+          @media screen and (max-width: 580px) {
+            .container-layout > .container-projects > .project-one > .content > .details-box > .social-box {
+              width: 100%; } }
+          .container-layout > .container-projects > .project-one > .content > .details-box > .social-box:hover a:hover {
+            transform: scale(1.2); }
           .container-layout > .container-projects > .project-one > .content > .details-box > .social-box > a {
             margin: 0;
-            width: 25px;
+            width: 30px;
             aspect-ratio: 1;
-            display: inline-block; }
+            display: inline-block;
+            transition: transform 600ms; }
+            @media screen and (max-width: 580px) {
+              .container-layout > .container-projects > .project-one > .content > .details-box > .social-box > a {
+                width: 20px;
+                margin-top: 10px; } }
       .container-layout > .container-projects > .project-one::after {
         position: absolute;
         inset: 0;
@@ -260,27 +235,42 @@ button {
         .container-layout > .container-projects > .project-four {
           grid-area: 2 / 1 / 3 / 1; } }
       .container-layout > .container-projects > .project-four .content > .details-box {
-        display: flex; }
+        display: flex;
+        justify-content: space-between; }
+        @media screen and (max-width: 580px) {
+          .container-layout > .container-projects > .project-four .content > .details-box {
+            flex-flow: column wrap;
+            align-items: center;
+            align-content: center; }
+            .container-layout > .container-projects > .project-four .content > .details-box > .social-box {
+              margin-bottom: 10px; } }
         .container-layout > .container-projects > .project-four .content > .details-box > .social-box {
-          margin-left: 10px;
-          width: 35%;
+          margin-left: 30px;
+          width: max-content;
           display: flex;
           justify-content: space-between;
           align-items: center; }
           .container-layout > .container-projects > .project-four .content > .details-box > .social-box > a {
+            margin-left: 30px;
             width: 25px;
             aspect-ratio: 1;
-            display: inline-block; }
+            display: inline-block;
+            transition: all 600ms; }
+            .container-layout > .container-projects > .project-four .content > .details-box > .social-box > a:hover {
+              transform: scale(1.1); }
       .container-layout > .container-projects > .project-four:after {
         background: center/contain no-repeat url(/assets/hplc-devices-wide.png), #fcfcfc 5%; }
     .container-layout > .container-projects > .project-five {
       z-index: 1;
       grid-area: 3 / 1 / 4 / 3; }
-      @media (max-width: 580px) {
+      @media screen and (max-width: 580px) {
         .container-layout > .container-projects > .project-five {
           grid-area: 3 /1 / 4 / 1; } }
       .container-layout > .container-projects > .project-five::after {
         background: 100% 90%/cover no-repeat url(/assets/weather-app.png), #fcfcfc 5%; }
+        @media screen and (max-width: 580px) {
+          .container-layout > .container-projects > .project-five::after {
+            background-position: center; } }
     .container-layout > .container-projects > .project-six {
       z-index: 1;
       grid-area: 2 / 5 / 3 / 8; }
@@ -328,13 +318,13 @@ button {
           line-height: 1.2;
           letter-spacing: 0.7px;
           font-family: Poppins, serif;
-          font-size: clamp(1rem, 2.5vw, 3rem);
+          font-size: clamp(1.5rem, 2.5vw, 3.5rem);
           font-weight: 900; }
         .container-layout > .container-projects > .contact > .glacial-pannel > .header > p {
           margin-top: 10px;
           text-align: center;
-          font-weight: 900;
-          font-size: clamp(1rem, 12vw, 1.5rem);
+          font-weight: 400;
+          font-size: clamp(1.5rem, 5vw, 2.5rem);
           letter-spacing: 0.3px; }
         .container-layout > .container-projects > .contact > .glacial-pannel > .social-box {
           display: flex;
@@ -353,7 +343,7 @@ button {
           .container-layout > .container-projects > .contact > .glacial-pannel > .social-box > a {
             padding: 0;
             margin: 0;
-            height: 35px;
+            height: 55px;
             aspect-ratio: 1;
             background: transparent;
             border: none; }
@@ -365,7 +355,7 @@ button {
               .container-layout > .container-projects > .contact > .glacial-pannel > .social-box > a {
                 height: 20px; } }
         .container-layout > .container-projects > .contact > .glacial-pannel > footer {
-          font-size: 1.2rem;
+          font-size: clamp(1.5rem, 5vw, 3.5rem);
           letter-spacing: 0.8px;
           margin-inline: auto; }
     .container-layout > .container-projects > div {
