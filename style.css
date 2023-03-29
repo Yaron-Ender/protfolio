@@ -170,7 +170,9 @@ button {
         .container-layout > .container-projects > .project-one > .content > p.small-screen {
           display: block;
           line-height: 2;
-          letter-spacing: 1px; } }
+          letter-spacing: 1px; }
+        .container-layout > .container-projects > .project-one > .content > .details-box > button {
+          display: none; } }
       .container-layout > .container-projects > .project-one > .content > .details-box {
         display: flex;
         justify-content: space-between;

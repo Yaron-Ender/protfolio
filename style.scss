@@ -189,13 +189,6 @@ padding:10px ;
 grid-area: 1 / 2 / 2 / 6;
 @media(max-width:580px){
 grid-area: 1 ;
-// & > .content p:not(.small-screen){
-// display: none;
-// }
-// & > .content > p.small-screen{
-// display:block;
-// color: #eee;
-// }
 }
 border-radius:1%;
 border:2px solid rgba(0, 0, 0, 0.6);
@@ -217,6 +210,9 @@ display: none;
   line-height:2;
   letter-spacing:1px;
  }  
+ & > .details-box > button {
+  display:none;
+ }
 }
 & > .details-box{
 display: flex;
