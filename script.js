@@ -4,10 +4,17 @@ const box3d = document.querySelector(".box-3d")
 const svg = document.querySelector('.box-3d svg')
 const path = document.querySelector(".box-3d svg path");
 const contact = document.querySelector(".contact");
+const cnvLeft = document.querySelector(".cnv-left");
+const cnvRight = document.querySelector(".cnv-right");
+const ctx = cnvLeft.getContext("2d");
+const ctx2 = cnvRight.getContext("2d");
+const parcticleArray=[]
+//the counter is used for dermine how many ciceles will be
+let counter = 0;
 const contactWidth = contact.offsetWidth;
 const contactHeight = contact.offHeight;
  const confettiNum = contactWidth / 15;
- console.log(html.clientWidth);
+ console.log(cnvLeft.clientWidth,cnvLeft.offsetWidth,cnvLeft.width);
 //Function
 const random = (min,max)=>{
 return Math.floor(Math.random() * (max - min) + min); 
@@ -18,7 +25,7 @@ constructor(){
 this.height=15;
 this.width=15;
 this.backgroundColor=`hsl(${Math.floor(Math.random()*360)},80%,70%)`
-// this.element='SPAN'
+
 }
 createEl(i){
 random(100,300)
@@ -85,3 +92,100 @@ addEventListener('load',()=>{
     });
   }
 })
+
+//canavs animation
+ class Particle {
+   constructor(color) {
+     this.x = cnvLeft.width/2;
+     this.y = cnvLeft.height/2;
+     this.size = Math.random() * 4 + 1;
+     this.speedX = Math.random() * 3 - 1.5;
+     this.speedY = Math.random() *3 - 1.5;
+     this.colorString = color;
+     this.speedX2 = Math.random() * 3 - 1.5;
+     this.speedY2 = Math.random() *3 - 1.5;
+   }
+   update() {
+    if(this.size>2){
+this.x += this.speedX;
+this.y += this.speedY;
+    }
+   if (this.size > 0.2) this.size -= 0.02;
+   return this;
+   }
+   updateLastParticles() {
+this.x += this.speedX*0.3;
+this.y += this.speedY*0.3;
+   return this;
+   }
+   draw() {
+     ctx.beginPath();
+     ctx.fillStyle = `hsl(${this.colorString})`;
+     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+     ctx.fill();
+     ctx2.beginPath();
+     ctx2.fillStyle = `hsl(${this.colorString})`;
+     ctx2.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+     ctx2.fill();
+     return this;
+   }
+ }
+ const removeParticle =(i)=>{
+   parcticleArray.splice(i,1)
+   if(counter>11){
+   clearInterval(particleFormation);
+   }
+ }
+ const handlePracticle = () => {
+  parcticleArray.forEach((p, index) => {
+    if(counter<11){
+    p.size<0.2?removeParticle(index): p.update().draw();
+  }
+  if(counter===11){
+  (p.x>cnvLeft.width||p.y>cnvLeft.height||p.x<1||p.y<1)?removeParticle(index): p.updateLastParticles().draw();
+  }
+  });
+};
+ //function that gives random color 
+function particleColor() {
+  const hslString = `${Math.floor(Math.random() * 360)},100%,50%`;
+  return hslString;
+}
+ const particleFormation = setInterval(() => {
+   if(counter<11){
+      counter++;
+      const color = particleColor();
+      for (let i = 0; i < 100; i++) {
+        const p = new Particle(color);
+        parcticleArray.push(p);
+      }
+    }
+ },2000);
+function animate() {
+  if(counter<11){
+    ctx.clearRect(0, 0, cnvLeft.width, cnvLeft.height);
+    ctx2.clearRect(0, 0, cnvLeft.width, cnvLeft.height);
+     handlePracticle();
+    requestAnimationFrame(animate);
+  }
+  
+  if (counter===11) {
+  if (parcticleArray.length>2){
+  ctx.fillStyle='rgba(51,51,51,0.05)'
+  ctx.fillRect(0, 0, cnvLeft.width, cnvLeft.height);
+  ctx2.fillStyle='rgba(51,51,51,0.05)'
+  ctx2.fillRect(0, 0, cnvLeft.width, cnvLeft.height);
+  // ctx.clearRect(0, 0, cnvLeft.width, cnvLeft.height);
+  handlePracticle();
+  requestAnimationFrame(animate);
+  }
+else{
+  ctx.clearRect(0, 0, cnvLeft.width, cnvLeft.height);
+  ctx2.clearRect(0, 0, cnvLeft.width, cnvLeft.height);
+  }
+  }
+}
+const reqAnim = requestAnimationFrame(animate);
+
+
+

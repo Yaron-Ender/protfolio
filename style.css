@@ -337,6 +337,13 @@ button {
           font-weight: 400;
           font-size: clamp(1.5rem, 5vw, 2.5rem);
           letter-spacing: 0.3px; }
+          @media screen and (min-width: 1600px) {
+            .container-layout > .container-projects > .contact > .glacial-pannel > .header > p {
+              margin-top: 20px;
+              line-height: 1.3;
+              font-weight: 400;
+              font-size: clamp(3.5rem, 5vw, 2.5rem);
+              letter-spacing: 0.3px; } }
         .container-layout > .container-projects > .contact > .glacial-pannel > .social-box {
           display: flex;
           justify-content: space-evenly;
@@ -366,11 +373,25 @@ button {
               .container-layout > .container-projects > .contact > .glacial-pannel > .social-box > a {
                 height: 20px; } }
         .container-layout > .container-projects > .contact > .glacial-pannel > footer {
-          font-size: clamp(1.5rem, 5vw, 3.5rem);
+          font-size: clamp(1.5rem, 5vw, 3.1rem);
           letter-spacing: 0.8px;
           margin-inline: auto; }
     .container-layout > .container-projects > div {
       position: relative; }
+    .container-layout > .container-projects > .cnv-left {
+      align-self: center;
+      grid-area: 1 / 1 / 2/  2;
+      width: 30em; }
+      @media (max-width: 580px) {
+        .container-layout > .container-projects > .cnv-left {
+          display: none; } }
+    .container-layout > .container-projects > .cnv-right {
+      align-self: center;
+      grid-area: 1 / 6 / 2/ 7;
+      width: 30em; }
+      @media (max-width: 580px) {
+        .container-layout > .container-projects > .cnv-right {
+          display: none; } }
 
 @keyframes border2 {
   1% {
