@@ -94,19 +94,19 @@ addEventListener('load',()=>{
 })
 
 //canavs animation
- class Particle {
-   constructor(color) {
-     this.x = cnvLeft.width/2;
-     this.y = cnvLeft.height/2;
-     this.size = Math.random() * 4 + 1;
-     this.speedX = Math.random() * 3 - 1.5;
-     this.speedY = Math.random() *3 - 1.5;
-     this.colorString = color;
-     this.speedX2 = Math.random() * 3 - 1.5;
-     this.speedY2 = Math.random() *3 - 1.5;
-   }
-   update() {
-    if(this.size>2){
+class Particle {
+constructor(color) {
+this.x = cnvLeft.width/2;
+this.y = cnvLeft.height/2;
+this.size = Math.random() * 4 + 1;
+this.speedX = Math.random() * 3 - 1.5;
+this.speedY = Math.random() *3 - 1.5;
+this.colorString = color;
+this.speedX2 = Math.random() * 3 - 1.5;
+this.speedY2 = Math.random() *3 - 1.5;
+}
+update() {
+if(this.size>2){
 this.x += this.speedX;
 this.y += this.speedY;
     }
@@ -132,16 +132,16 @@ this.y += this.speedY*0.3;
  }
  const removeParticle =(i)=>{
    parcticleArray.splice(i,1)
-   if(counter>11){
+   if(counter>5){
    clearInterval(particleFormation);
    }
  }
  const handlePracticle = () => {
   parcticleArray.forEach((p, index) => {
-    if(counter<11){
+    if(counter<5){
     p.size<0.2?removeParticle(index): p.update().draw();
   }
-  if(counter===11){
+  if(counter===5){
   (p.x>cnvLeft.width||p.y>cnvLeft.height||p.x<1||p.y<1)?removeParticle(index): p.updateLastParticles().draw();
   }
   });
@@ -152,7 +152,7 @@ function particleColor() {
   return hslString;
 }
  const particleFormation = setInterval(() => {
-   if(counter<11){
+   if(counter<5){
       counter++;
       const color = particleColor();
       for (let i = 0; i < 100; i++) {
@@ -162,20 +162,19 @@ function particleColor() {
     }
  },2000);
 function animate() {
-  if(counter<11){
+  if(counter<5){
     ctx.clearRect(0, 0, cnvLeft.width, cnvLeft.height);
     ctx2.clearRect(0, 0, cnvLeft.width, cnvLeft.height);
      handlePracticle();
     requestAnimationFrame(animate);
   }
   
-  if (counter===11) {
+  if (counter===5) {
   if (parcticleArray.length>2){
   ctx.fillStyle='rgba(51,51,51,0.05)'
   ctx.fillRect(0, 0, cnvLeft.width, cnvLeft.height);
   ctx2.fillStyle='rgba(51,51,51,0.05)'
   ctx2.fillRect(0, 0, cnvLeft.width, cnvLeft.height);
-  // ctx.clearRect(0, 0, cnvLeft.width, cnvLeft.height);
   handlePracticle();
   requestAnimationFrame(animate);
   }
